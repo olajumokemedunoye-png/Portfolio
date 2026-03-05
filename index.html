@@ -201,7 +201,7 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
         <span class="cred-pill">MSc HRM (2024)</span>
         <span class="cred-pill">CIPD</span>
       </div>
-      <p class="hero-sub">Translating complex people and operational data into strategic decision intelligence — across Financial, Technology, and Care sectors.</p>
+      <p class="hero-sub">Data analyst specialising in HR analytics and workforce planning. I use SQL, Excel, and Power BI to transform workforce and operational data into actionable insights that support better decision-making — across Financial, Technology, and Care sectors.</p>
       <div class="hero-btns">
         <a href="#projects" class="btn-primary">View Case Studies</a>
         <a href="#contact" class="btn-outline">Let's Connect</a>
@@ -483,6 +483,90 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
         </div>
       </div>
     </div>
+    <!-- PROJECT 5 — RECRUITMENT PIPELINE -->
+    <div class="proj-card">
+      <div class="proj-header-bar">
+        <span class="proj-sector tech">💻 Technology</span>
+        <div class="proj-title">Recruitment Pipeline Analysis &amp; Time-to-Hire Optimisation</div>
+        <div class="tools-row">
+          <span class="tool-badge"><span>🗄️</span> SQL</span>
+          <span class="tool-badge"><span>📊</span> Excel</span>
+          <span class="tool-badge"><span>⚡</span> Power BI</span>
+        </div>
+      </div>
+      <div class="proj-body-grid">
+        <div class="proj-left">
+          <div class="story-label">🔍 Business Problem</div>
+          <p class="proj-story">A growing technology firm was losing top candidates mid-pipeline due to a slow, fragmented hiring process. Average time-to-hire had risen to 47 days and offer acceptance rate had dropped to 61%. Leadership had no visibility into where candidates were dropping off or which hiring managers were causing delays.</p>
+          <div class="story-label">⚙️ Approach</div>
+          <p class="proj-story">Built a recruitment funnel analytics model in SQL, extracting stage-by-stage candidate journey data from the ATS. Power BI dashboard tracked conversion rates at each pipeline stage, time-in-stage by role type, and hiring manager performance. Excel modelled cost-per-hire across departments.</p>
+          <div class="insights-box">
+            <div class="insights-title">💡 Key Insights</div>
+            <div class="insight-item"><div class="insight-dot"></div>47% of candidate drop-off occurred at the technical assessment stage — too long, too early in process</div>
+            <div class="insight-item"><div class="insight-dot"></div>Time-to-hire for senior roles was 2.3x longer than mid-level — driven by panel scheduling delays</div>
+            <div class="insight-item"><div class="insight-dot"></div>3 hiring managers accounted for 68% of late-stage offer declines due to slow feedback loops</div>
+            <div class="insight-item"><div class="insight-dot"></div>Resequencing the assessment stage reduced average pipeline time by 11 days</div>
+          </div>
+          <div class="impact-row">
+            <div class="impact-chip">47→36 Days<span>Time-to-hire reduction</span></div>
+            <div class="impact-chip">61→79%<span>Offer acceptance rate</span></div>
+            <div class="impact-chip">£38K<span>Cost-per-hire saving</span></div>
+          </div>
+        </div>
+        <div class="proj-right">
+          <div class="chart-title">📊 Recruitment Pipeline Dashboard</div>
+          <div class="chart-tabs">
+            <button class="ctab active" onclick="showChart('p5',0,this)">Pipeline Funnel</button>
+            <button class="ctab" onclick="showChart('p5',1,this)">Time-to-Hire</button>
+          </div>
+          <canvas id="p5c0" height="200"></canvas>
+          <canvas id="p5c1" height="200" style="display:none"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 6 — EMPLOYEE PERFORMANCE -->
+    <div class="proj-card">
+      <div class="proj-header-bar">
+        <span class="proj-sector fin">💰 Financial Services</span>
+        <div class="proj-title">Employee Performance Analytics &amp; Engagement Scoring</div>
+        <div class="tools-row">
+          <span class="tool-badge"><span>📊</span> Excel</span>
+          <span class="tool-badge"><span>⚡</span> Power BI</span>
+          <span class="tool-badge"><span>🗄️</span> SQL</span>
+        </div>
+      </div>
+      <div class="proj-body-grid">
+        <div class="proj-left">
+          <div class="story-label">🔍 Business Problem</div>
+          <p class="proj-story">A financial services organisation had no consistent way to measure employee performance across departments. Annual appraisal scores existed in silos, engagement survey data was never connected to performance outcomes, and high performers were leaving before their value was fully recognised.</p>
+          <div class="story-label">⚙️ Approach</div>
+          <p class="proj-story">Designed an integrated performance and engagement scoring model connecting appraisal ratings, manager feedback scores, engagement survey results, and absence data. SQL extracted data from three separate HR systems into a unified data model. Power BI dashboard gave HR Business Partners a real-time view of performance distribution, engagement risk, and flight risk by department.</p>
+          <div class="insights-box">
+            <div class="insights-title">💡 Key Insights</div>
+            <div class="insight-item"><div class="insight-dot"></div>Top performers with low engagement scores were 4x more likely to leave within 6 months</div>
+            <div class="insight-item"><div class="insight-dot"></div>Performance ratings showed grade inflation in 2 departments — skewing reward decisions</div>
+            <div class="insight-item"><div class="insight-dot"></div>Engagement scores below 6/10 correlated with a 34% increase in short-term absence</div>
+            <div class="insight-item"><div class="insight-dot"></div>Calibration model flagged 12% of workforce as high-value flight-risk — enabling proactive retention</div>
+          </div>
+          <div class="impact-row">
+            <div class="impact-chip">4x<span>Flight risk in low-engagement top performers</span></div>
+            <div class="impact-chip">12%<span>Workforce flagged for retention</span></div>
+            <div class="impact-chip">34%<span>Absence linked to low engagement</span></div>
+          </div>
+        </div>
+        <div class="proj-right">
+          <div class="chart-title">📊 Employee Performance Dashboard</div>
+          <div class="chart-tabs">
+            <button class="ctab active" onclick="showChart('p6',0,this)">Performance Distribution</button>
+            <button class="ctab" onclick="showChart('p6',1,this)">Engagement vs Flight Risk</button>
+          </div>
+          <canvas id="p6c0" height="200"></canvas>
+          <canvas id="p6c1" height="200" style="display:none"></canvas>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -627,6 +711,16 @@ C('p4c2',{type:'bar',data:{labels:['Report Speed','Cost Eff.','Retention','SLA A
 C('radarChart',{type:'radar',data:{labels:['Power BI','Excel','PostgreSQL','Workforce Planning','KPI Design','Stakeholder Comms','Data Modelling','HR Analytics'],datasets:[{label:'Proficiency',data:[90,95,80,92,90,88,85,94],backgroundColor:'rgba(37,99,235,0.12)',borderColor:'#2563eb',pointBackgroundColor:'#f59e0b',pointBorderColor:'#fff',borderWidth:2}]},options:{responsive:true,scales:{r:{min:0,max:100,ticks:{display:false},grid:{color:'#e2e8f0'},pointLabels:{font:{size:10},color:'#475569'}}},plugins:{legend:{display:false}}}});
 // Sector
 C('sectorChart',{type:'doughnut',data:{labels:['HR & Workforce','Customer Ops','Financial Services','Care / Healthcare','Technology'],datasets:[{data:[32,25,20,13,10],backgroundColor:['#1a3a6b','#2563eb','#f59e0b','#22c55e','#8b5cf6'],borderWidth:0,hoverOffset:8}]},options:{responsive:true,cutout:'62%',plugins:{legend:{position:'bottom',labels:{font:{size:10.5},color:'#475569',padding:10}}}}});
+
+// P5 — Recruitment Funnel
+C('p5c0',{type:'bar',data:{labels:['Applied','Screened','Assessment','Interview','Offer','Accepted'],datasets:[{label:'Candidates',data:[420,280,148,89,61,48],backgroundColor:['#1a3a6b','#2563eb','#3b82f6','#60a5fa','#f59e0b','#22c55e'],borderRadius:5}]},options:{...gOpts(),plugins:{legend:{display:false}}}});
+// P5 — Time to Hire
+C('p5c1',{type:'bar',data:{labels:['Junior','Mid-Level','Senior','Lead','Director'],datasets:[{label:'Days Before',data:[28,35,54,62,71],backgroundColor:'#bfdbfe',borderRadius:4},{label:'Days After',data:[21,28,41,50,58],backgroundColor:'#2563eb',borderRadius:4}]},options:gOpts()});
+
+// P6 — Performance Distribution
+C('p6c0',{type:'doughnut',data:{labels:['Exceeds (Top)','Meets+','Meets','Below Meets','Underperform'],datasets:[{data:[18,29,35,12,6],backgroundColor:['#22c55e','#86efac','#bfdbfe','#fcd34d','#ef4444'],borderWidth:0,hoverOffset:8}]},options:{responsive:true,cutout:'55%',plugins:{legend:{position:'bottom',labels:{font:{size:9.5},color:'#475569',padding:8}}}}});
+// P6 — Engagement vs Flight Risk
+C('p6c1',{type:'bar',data:{labels:['Engaged+Perform','Engaged+LowPerf','Disengaged+Perform','Disengaged+LowPerf'],datasets:[{label:'Flight Risk %',data:[8,14,42,71],backgroundColor:['#22c55e','#f59e0b','#f97316','#ef4444'],borderRadius:5}]},options:{indexAxis:'y',...gOpts(),plugins:{legend:{display:false}}}});
 
 // Tab switcher
 function showChart(proj,idx,btn){
