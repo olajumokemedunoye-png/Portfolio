@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Olajumoke O. Medunoye | Workforce & Customer Analytics Consultant</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{--navy:#0a1628;--blue:#1a3a6b;--accent:#2563eb;--gold:#f59e0b;--light:#f0f4ff;--white:#fff;--grey:#64748b;--text:#1e293b;--border:#e2e8f0;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--text);line-height:1.6;}
+
+nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.97);backdrop-filter:blur(10px);z-index:999;padding:14px 40px;display:flex;justify-content:space-between;align-items:center;}
+.nav-logo{color:var(--gold);font-weight:700;font-size:1rem;letter-spacing:1px;}
+.nav-links{display:flex;gap:24px;}
+.nav-links a{color:#cbd5e1;text-decoration:none;font-size:.82rem;letter-spacing:.5px;transition:color .2s;}
+.nav-links a:hover{color:var(--gold);}
+
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 60%,#1e40af 100%);min-height:100vh;display:flex;align-items:center;padding:100px 40px 60px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.hero-content{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:center;}
+.hero-badge{display:inline-block;background:rgba(245,158,11,.15);border:1px solid var(--gold);color:var(--gold);padding:6px 16px;border-radius:20px;font-size:.75rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:18px;}
+.hero h1{font-size:2.5rem;font-weight:800;color:#fff;line-height:1.15;margin-bottom:6px;}
+.hero h1 span{color:var(--gold);}
+.hero-name{font-size:1rem;color:#94a3b8;margin-bottom:6px;letter-spacing:.5px;}
+.hero-creds{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+.cred-pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#e2e8f0;padding:4px 12px;border-radius:20px;font-size:.75rem;}
+.hero-sub{color:#94a3b8;font-size:.98rem;margin-bottom:28px;max-width:480px;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{background:var(--gold);color:var(--navy);padding:12px 26px;border-radius:6px;text-decoration:none;font-weight:700;font-size:.88rem;transition:transform .2s,box-shadow .2s;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(245,158,11,.35);}
+.btn-outline{border:2px solid rgba(255,255,255,.3);color:#fff;padding:12px 26px;border-radius:6px;text-decoration:none;font-weight:600;font-size:.88rem;transition:all .2s;}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+.stat-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:20px;text-align:center;backdrop-filter:blur(4px);}
+.stat-num{font-size:1.9rem;font-weight:800;color:var(--gold);}
+.stat-label{color:#94a3b8;font-size:.76rem;margin-top:3px;}
+
+section{padding:76px 40px;}
+.section-inner{max-width:1100px;margin:0 auto;}
+.section-tag{color:var(--accent);font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+.section-title{font-size:1.9rem;font-weight:800;color:var(--navy);margin-bottom:36px;}
+.section-title span{color:var(--accent);}
+
+/* ABOUT */
+.about{background:#fff;}
+.about-grid{display:grid;grid-template-columns:2fr 1fr;gap:50px;align-items:start;}
+.about-text p{color:#475569;font-size:1rem;margin-bottom:14px;line-height:1.85;}
+.highlight{background:linear-gradient(90deg,#eff6ff,#fff);border-left:4px solid var(--accent);padding:16px 20px;border-radius:0 8px 8px 0;font-style:italic;color:var(--navy);font-weight:500;margin:20px 0;}
+.quals{display:flex;flex-direction:column;gap:10px;}
+.qual-item{background:var(--light);border:1px solid #bfdbfe;border-radius:8px;padding:13px 16px;}
+.qual-title{font-weight:700;font-size:.85rem;color:var(--blue);}
+.qual-sub{font-size:.75rem;color:var(--grey);margin-top:2px;}
+
+/* COMPETENCIES */
+.competencies{background:var(--navy);}
+.comp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.comp-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:26px;transition:transform .3s,border-color .3s;}
+.comp-card:hover{transform:translateY(-4px);border-color:var(--gold);}
+.comp-icon{font-size:1.8rem;margin-bottom:12px;}
+.comp-title{color:var(--gold);font-weight:700;font-size:.95rem;margin-bottom:12px;}
+.comp-list{list-style:none;}
+.comp-list li{color:#94a3b8;font-size:.82rem;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.comp-list li::before{content:'▸ ';color:var(--accent);}
+
+/* SKILLS VIZ */
+.skills-section{background:#f8fafc;}
+.charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.chart-card{background:#fff;border-radius:16px;padding:26px;box-shadow:0 2px 20px rgba(0,0,0,.06);}
+.chart-card h3{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:18px;}
+
+/* EXPERIENCE */
+.experience{background:#fff;}
+.exp-block{margin-bottom:44px;}
+.exp-role{font-size:1.15rem;font-weight:800;color:var(--navy);margin-bottom:4px;}
+.exp-type{display:inline-block;background:#eff6ff;color:var(--accent);font-size:.75rem;font-weight:700;padding:3px 12px;border-radius:20px;margin-bottom:14px;}
+.exp-items{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.exp-items li{background:#f8fafc;border:1px solid var(--border);border-radius:8px;padding:12px 15px;font-size:.85rem;color:#475569;display:flex;gap:10px;align-items:flex-start;}
+.exp-items li::before{content:'✦';color:var(--accent);font-size:.7rem;margin-top:3px;flex-shrink:0;}
+
+/* PROJECTS */
+.projects{background:#f8fafc;}
+.proj-card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:32px;box-shadow:0 2px 16px rgba(0,0,0,.05);}
+.proj-top{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.proj-info{padding:30px 32px;}
+.proj-chart-area{padding:24px;background:#f8fafc;border-left:1px solid var(--border);}
+.proj-sector{font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:20px;display:inline-block;margin-bottom:10px;}
+.fin{background:#fef3c7;color:#92400e;}.tech{background:#ede9fe;color:#5b21b6;}.care{background:#d1fae5;color:#065f46;}.ops{background:#fee2e2;color:#991b1b;}
+.proj-title{font-weight:800;font-size:1.1rem;color:var(--navy);margin-bottom:10px;}
+.proj-story{color:#475569;font-size:.87rem;line-height:1.8;margin-bottom:14px;}
+.story-section{margin-bottom:12px;}
+.story-label{font-weight:700;font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px;}
+.impact-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
+.impact-chip{background:linear-gradient(135deg,#eff6ff,#dbeafe);border:1px solid #bfdbfe;border-radius:8px;padding:8px 14px;font-size:.78rem;font-weight:700;color:var(--blue);}
+.impact-chip span{display:block;font-size:.68rem;color:var(--grey);font-weight:400;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+.tag{background:#f1f5f9;color:#475569;font-size:.72rem;padding:4px 10px;border-radius:4px;}
+.proj-chart-area h4{font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:12px;}
+
+/* TOOLS */
+.tools-section{background:var(--navy);}
+.tools-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
+.tool-item{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:20px;text-align:center;transition:transform .2s,border-color .2s;}
+.tool-item:hover{transform:translateY(-3px);border-color:var(--gold);}
+.tool-icon{font-size:1.8rem;margin-bottom:8px;}
+.tool-name{font-weight:700;font-size:.85rem;color:#e2e8f0;}
+.tool-level{font-size:.72rem;color:#64748b;margin-top:3px;}
+.level-bar{height:4px;background:rgba(255,255,255,.1);border-radius:2px;margin-top:8px;overflow:hidden;}
+.level-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--gold));border-radius:2px;}
+
+/* INDUSTRY */
+.positioning{background:linear-gradient(135deg,#1e3a8a,#1e40af);}
+.pos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.pos-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:26px;}
+.pos-sector{color:var(--gold);font-weight:800;font-size:1rem;margin-bottom:14px;}
+.pos-items{list-style:none;}
+.pos-items li{color:#94a3b8;font-size:.82rem;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.07);}
+.pos-items li::before{content:'✦ ';color:var(--gold);font-size:.7rem;}
+.pos-quote{margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.1);color:#bfdbfe;font-size:.8rem;font-style:italic;}
+
+/* CONTACT */
+.contact{background:var(--navy);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.contact-text h2{color:#fff;font-size:1.7rem;font-weight:800;margin-bottom:14px;}
+.contact-text p{color:#94a3b8;margin-bottom:26px;font-size:.95rem;}
+.contact-links{display:flex;flex-direction:column;gap:12px;}
+.contact-link{display:flex;align-items:center;gap:12px;color:#e2e8f0;text-decoration:none;font-size:.88rem;padding:13px 16px;background:rgba(255,255,255,.06);border-radius:8px;border:1px solid rgba(255,255,255,.1);transition:all .2s;}
+.contact-link:hover{background:rgba(245,158,11,.1);border-color:var(--gold);color:var(--gold);}
+.availability{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:28px;}
+.avail-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3);color:#4ade80;padding:7px 14px;border-radius:20px;font-size:.8rem;font-weight:600;margin-bottom:18px;}
+.avail-dot{width:8px;height:8px;background:#4ade80;border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.avail-items{list-style:none;}
+.avail-items li{color:#94a3b8;font-size:.86rem;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.avail-items li::before{content:'✓ ';color:#4ade80;}
+
+footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size:.8rem;}
+
+@media(max-width:900px){
+  .hero-content,.about-grid,.contact-grid,.proj-top{grid-template-columns:1fr;}
+  .comp-grid,.pos-grid,.charts-grid{grid-template-columns:1fr 1fr;}
+  .tools-grid{grid-template-columns:repeat(3,1fr);}
+  .exp-items{grid-template-columns:1fr;}
+  .hero h1{font-size:1.9rem;}
+  section{padding:56px 20px;}
+  nav{padding:14px 20px;}
+  .proj-chart-area{border-left:none;border-top:1px solid var(--border);}
+}
+@media(max-width:580px){
+  .comp-grid,.pos-grid,.charts-grid,.tools-grid{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">OLAJUMOKE · ANALYTICS</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#competencies">Expertise</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#industries">Industries</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div>
+      <div class="hero-badge">📊 Open to Remote Engagements</div>
+      <h1>Workforce &amp; Customer<br/><span>Analytics Consultant</span></h1>
+      <p class="hero-name">Olajumoke O. Medunoye</p>
+      <div class="hero-creds">
+        <span class="cred-pill">BSc Economics</span>
+        <span class="cred-pill">BSc Industrial Relations &amp; Personnel Mgmt</span>
+        <span class="cred-pill">MSc HRM (2024)</span>
+        <span class="cred-pill">CIPD</span>
+      </div>
+      <p class="hero-sub">Translating complex people and operational data into strategic decision intelligence — across Financial, Technology, and Care sectors.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary">View Case Studies</a>
+        <a href="#contact" class="btn-outline">Let's Connect</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card"><div class="stat-num">10+</div><div class="stat-label">Years People &amp; HR Domain</div></div>
+      <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Academic Qualifications</div></div>
+      <div class="stat-card"><div class="stat-num">6+</div><div class="stat-label">Analytics Projects Delivered</div></div>
+      <div class="stat-card"><div class="stat-num">100%</div><div class="stat-label">Remote Delivery</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-tag">Professional Profile</div>
+        <h2 class="section-title">Strategic <span>Decision Intelligence</span></h2>
+        <p>I am a Workforce &amp; Customer Analytics Consultant with over a decade of domain expertise spanning economics, industrial relations, and human resource management. Holding a Master's in HRM (2024) and CIPD membership, I bridge the critical gap between people strategy and data intelligence.</p>
+        <p>My work is built around one principle: data should drive decisions, not just describe them. I design analytics solutions — from attrition risk models to contact centre KPI frameworks — that give leadership teams the confidence to act with precision and financial grounding.</p>
+        <div class="highlight">"I don't just build dashboards — I build the intelligence infrastructure that organisations rely on to make confident, financially grounded workforce decisions."</div>
+        <p>Specialising in Power BI, Advanced Excel, and PostgreSQL, I operate across Financial Services, Technology, and Care sectors, delivering fully remote, high-impact analytics engagements.</p>
+      </div>
+      <div>
+        <div class="section-tag" style="margin-bottom:14px;">Qualifications</div>
+        <div class="quals">
+          <div class="qual-item"><div class="qual-title">MSc Human Resource Management</div><div class="qual-sub">Postgraduate · 2024</div></div>
+          <div class="qual-item"><div class="qual-title">BSc Industrial Relations &amp; Personnel Management</div><div class="qual-sub">Undergraduate · 2014</div></div>
+          <div class="qual-item"><div class="qual-title">BSc Economics</div><div class="qual-sub">Undergraduate · 2010</div></div>
+          <div class="qual-item"><div class="qual-title">CIPD Membership</div><div class="qual-sub">Chartered Institute of Personnel &amp; Development</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPETENCIES -->
+<section class="competencies" id="competencies">
+  <div class="section-inner">
+    <div class="section-tag" style="color:var(--gold);">Core Expertise</div>
+    <h2 class="section-title" style="color:#fff;">Competency <span style="color:var(--gold);">Framework</span></h2>
+    <div class="comp-grid">
+      <div class="comp-card">
+        <div class="comp-icon">⚙️</div>
+        <div class="comp-title">Technical Authority</div>
+        <ul class="comp-list">
+          <li>Power BI Dashboard Development</li>
+          <li>PostgreSQL Query Optimisation</li>
+          <li>Advanced Excel Analytics</li>
+          <li>Data Modelling &amp; Transformation</li>
+          <li>Headcount Forecasting Models</li>
+          <li>Jira Reporting &amp; Operational Metrics</li>
+        </ul>
+      </div>
+      <div class="comp-card">
+        <div class="comp-icon">🎯</div>
+        <div class="comp-title">Strategic Capabilities</div>
+        <ul class="comp-list">
+          <li>HR Analytics &amp; Workforce Planning</li>
+          <li>Attrition Risk &amp; Retention Strategy</li>
+          <li>SLA &amp; Ticket Performance Reporting</li>
+          <li>KPI Architecture Design</li>
+          <li>Customer Service Performance Analysis</li>
+          <li>Executive Insight Storytelling</li>
+        </ul>
+      </div>
+      <div class="comp-card">
+        <div class="comp-icon">🤝</div>
+        <div class="comp-title">Executive Behavioural Strengths</div>
+        <ul class="comp-list">
+          <li>Collaborative Stakeholder Engagement</li>
+          <li>Active Listening for Problem Diagnosis</li>
+          <li>Context-Based Decision Making</li>
+          <li>Conflict-Aware Professionalism</li>
+          <li>Self-Directed Remote Delivery</li>
+          <li>Cross-Functional Communication</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS VIZ -->
+<section class="skills-section" id="skills">
+  <div class="section-inner">
+    <div class="section-tag">Data &amp; Technical Skills</div>
+    <h2 class="section-title">Skills <span>Intelligence</span></h2>
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h3>📡 Technical Proficiency Radar</h3>
+        <canvas id="radarChart" height="260"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>📈 Workforce Attrition Model — Before vs After Intervention</h3>
+        <canvas id="attritionChart" height="260"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>⚡ KPI Impact — Before &amp; After Analytics Implementation</h3>
+        <canvas id="kpiChart" height="260"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>🏭 Domain Experience Breakdown</h3>
+        <canvas id="sectorChart" height="260"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="section-inner">
+    <div class="section-tag">Career History</div>
+    <h2 class="section-title">Professional <span>Experience</span></h2>
+    <div class="exp-block">
+      <div class="exp-role">HR &amp; Workforce Data Analyst</div>
+      <span class="exp-type">Independent Projects</span>
+      <ul class="exp-items">
+        <li>Designed attrition risk dashboards analysing tenure, performance, and department trends to surface high-flight-risk cohorts before exits occurred.</li>
+        <li>Built headcount forecasting models supporting quarterly workforce planning aligned to budget cycles and growth scenarios.</li>
+        <li>Developed cost-of-turnover analysis identifying high-impact retention areas, quantifying the financial cost of attrition per role band.</li>
+        <li>Delivered executive-level KPI reports using Power BI and Excel, enabling leadership teams to make data-led people decisions.</li>
+      </ul>
+    </div>
+    <div class="exp-block">
+      <div class="exp-role">Customer Operations Data Analyst</div>
+      <span class="exp-type">Independent Projects</span>
+      <ul class="exp-items">
+        <li>Analysed customer service ticket data including SLA compliance and resolution time to identify performance gaps by team and channel.</li>
+        <li>Built agent performance dashboards tracking productivity and CSAT trends, enabling targeted coaching conversations.</li>
+        <li>Created PostgreSQL SQL queries to automate KPI extraction, reducing manual reporting effort significantly.</li>
+        <li>Delivered actionable insights improving operational visibility and supporting capacity planning decisions for ops leadership.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS / CASE STUDIES -->
+<section class="projects" id="projects">
+  <div class="section-inner">
+    <div class="section-tag">Portfolio</div>
+    <h2 class="section-title">Case Study <span>Deep Dives</span></h2>
+
+    <!-- PROJECT 1 -->
+    <div class="proj-card">
+      <div class="proj-top">
+        <div class="proj-info">
+          <span class="proj-sector fin">💰 Financial Services</span>
+          <div class="proj-title">Workforce Cost-of-Turnover &amp; Attrition Risk Model</div>
+          <div class="story-section">
+            <div class="story-label">🔍 The Challenge</div>
+            <p class="proj-story">A mid-sized financial services organisation was experiencing a persistent 22% annual attrition rate — but leadership had no visibility into <em>where</em> exits were concentrated, <em>why</em> they were happening, or what they were truly costing the business. HR were producing basic headcount reports, but no one could quantify the financial consequence of losing a mid-level analyst versus a frontline processor. Decisions were reactive and anecdotal.</p>
+          </div>
+          <div class="story-section">
+            <div class="story-label">⚙️ The Approach</div>
+            <p class="proj-story">I built a multi-dimensional attrition model in Excel and Power BI, pulling together tenure data, performance ratings, department codes, and exit interview themes. I segmented the workforce into tenure bands (0–6m, 6–18m, 18m–3yr, 3yr+) and overlaid exit rates per band. Using a cost-of-turnover formula (recruitment cost + onboarding time + productivity ramp + manager bandwidth), I assigned a financial value to each exit by role grade. SQL queries were used to extract clean headcount snapshots from the HRIS on a monthly cadence.</p>
+          </div>
+          <div class="story-section">
+            <div class="story-label">💡 Key Findings &amp; Recommendations</div>
+            <p class="proj-story">The model revealed that 68% of all exits occurred within the first 18 months — pointing clearly to an onboarding and early engagement failure rather than a compensation issue. The highest financial impact was in mid-senior analyst roles, where each exit cost an estimated £18,500 in total. I recommended a structured 90-day check-in programme, a revised onboarding experience for months 3–12, and early-tenure manager accountability metrics.</p>
+          </div>
+          <div class="impact-row">
+            <div class="impact-chip">£312K<span>Annualised turnover cost identified</span></div>
+            <div class="impact-chip">68%<span>Exits within first 18 months</span></div>
+            <div class="impact-chip">£18,500<span>Avg cost per mid-senior exit</span></div>
+            <div class="impact-chip">3 Cohorts<span>Flagged as high-flight-risk</span></div>
+          </div>
+          <div class="proj-tags"><span class="tag">Power BI</span><span class="tag">Excel</span><span class="tag">SQL</span><span class="tag">Attrition Modelling</span><span class="tag">Cost Analysis</span></div>
+        </div>
+        <div class="proj-chart-area">
+          <h4>📊 Attrition by Tenure Band (%)</h4>
+          <canvas id="proj1Chart" height="220"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 2 -->
+    <div class="proj-card">
+      <div class="proj-top">
+        <div class="proj-info">
+          <span class="proj-sector tech">💻 Technology</span>
+          <div class="proj-title">Headcount Forecasting &amp; Capacity Planning Model</div>
+          <div class="story-section">
+            <div class="story-label">🔍 The Challenge</div>
+            <p class="proj-story">A scaling technology business was preparing for a Series B growth phase, planning to grow headcount from approximately 180 FTE to 420 FTE over 18 months. Their People team was working from static spreadsheets with no dynamic scenario modelling. As each hire happened, the spreadsheet broke. Finance and HR were misaligned on hiring timelines, and the CFO had no reliable view of future payroll liability across growth scenarios.</p>
+          </div>
+          <div class="story-section">
+            <div class="story-label">⚙️ The Approach</div>
+            <p class="proj-story">I designed a dynamic headcount planning model in Excel with three growth scenarios — Conservative (15% growth), Base (28% growth), and Accelerated (42% growth). Each scenario mapped hiring by quarter, role type, salary band, and department. Power BI dashboards connected to the model provided a real-time view of planned vs actual headcount, open requisitions, and rolling 12-month payroll cost projections. PostgreSQL was used to automate the pull of live headcount from their HRIS into the model.</p>
+          </div>
+          <div class="story-section">
+            <div class="story-label">💡 Key Findings &amp; Recommendations</div>
+            <p class="proj-story">The modelling exposed a critical dependency risk — 61% of planned hires were concentrated in two departments, creating both a talent pipeline bottleneck and a single-point-of-failure for growth delivery. I recommended hiring sequencing changes and introduced a role criticality score to prioritise requisitions. The model was formally adopted for quarterly board reporting.</p>
+          </div>
+          <div class="impact-row">
+            <div class="impact-chip">3 Scenarios<span>Board-ready growth models</span></div>
+            <div class="impact-chip">240 FTE<span>Growth mapped across 18 months</span></div>
+            <div class="impact-chip">61%<span>Hire concentration risk identified</span></div>
+            <div class="impact-chip">Adopted<span>As standard board reporting tool</span></div>
+          </div>
+          <div class="proj-tags"><span class="tag">Excel</span><span class="tag">Power BI</span><span class="tag">PostgreSQL</span><span class="tag">Capacity Planning</span><span class="tag">Scenario Modelling</span></div>
+        </div>
+        <div class="proj-chart-area">
+          <h4>📊 Headcount Growth — 3 Scenarios</h4>
+          <canvas id="proj2Chart" height="220"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 3 -->
+    <div class="proj-card">
+      <div class="proj-top">
+        <div class="proj-info">
+          <span class="proj-sector care">🏥 Care &amp; Healthcare</span>
+          <div class="proj-title">Staffing Ratio, Burnout Risk &amp; Absence Forecasting</div>
+          <div class="story-section">
+            <div class="story-label">🔍 The Challenge</div>
+            <p class="proj-story">A care provider operating across multiple sites was facing a mounting crisis: reactive agency spend had risen 34% year-on-year as managers scrambled to fill last-minute gaps caused by unplanned absence. There was no early-warning system. Burnout was visible only after someone resigned or went on extended sick leave. The finance team had no forecasting model to manage agency costs, and the operations team were firefighting rather than planning.</p>
+          </div>
+          <div class="story-section">
+            <div class="story-label">⚙️ The Approach</div>
+            <p class="proj-story">I built a staffing load and absence trend model integrating rota data, Bradford Factor absence scores, shift patterns, and patient volume forecasts. A Power BI dashboard flagged individuals and teams exceeding the burnout risk threshold — defined as Bradford Factor above 200 combined with 3+ consecutive short-absence spells. Six-week forward-looking staffing forecasts were produced from shift data, enabling proactive rota planning. Excel was used for the base model; SQL queries extracted absence records from the HR system.</p>
+          </div>
+          <div class="story-section">
+            <div class="story-label">💡 Key Findings &amp; Recommendations</div>
+            <p class="proj-story">The model identified that Monday and Friday shifts carried 3x the absence risk of mid-week — a pattern invisible in the previous reporting. Night shift workers in the 2–3 year tenure band showed the highest burnout indicators. I recommended a targeted wellbeing check-in programme for flagged individuals, a revised rota design to distribute high-pressure shifts, and a 6-week rolling absence forecast embedded into the monthly ops review.</p>
+          </div>
+          <div class="impact-row">
+            <div class="impact-chip">£94K<span>Projected agency spend reduction</span></div>
+            <div class="impact-chip">18%<span>Reactive agency shift reduction</span></div>
+            <div class="impact-chip">6 Weeks<span>Forward rota planning horizon</span></div>
+            <div class="impact-chip">3x<span>Mon/Fri absence risk identified</span></div>
+          </div>
+          <div class="proj-tags"><span class="tag">Power BI</span><span class="tag">Excel</span><span class="tag">SQL</span><span class="tag">Workforce Planning</span><span class="tag">Burnout Analytics</span></div>
+        </div>
+        <div class="proj-chart-area">
+          <h4>📊 Absence Risk by Day of Week</h4>
+          <canvas id="proj3Chart" height="220"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 4 -->
+    <div class="proj-card">
+      <div class="proj-top">
+        <div class="proj-info">
+          <span class="proj-sector ops">📞 Contact Centre / Operations</span>
+          <div class="proj-title">Customer Operations KPI &amp; SLA Performance Dashboard</div>
+          <div class="story-section">
+            <div class="story-label">🔍 The Challenge</div>
+            <p class="proj-story">A customer operations team managing 12,000+ monthly support tickets was producing performance reports manually from three disconnected data sources — a CRM, Jira, and a spreadsheet log. The process took 2–3 days per reporting cycle. By the time leadership received the data, it was already outdated. SLA breaches were being discovered after the fact, CSAT dips had no root cause analysis attached, and agent performance comparisons were unreliable due to inconsistent data handling.</p>
+          </div>
+          <div class="story-section">
+            <div class="story-label">⚙️ The Approach</div>
+            <p class="proj-story">I designed a unified KPI architecture, mapping 14 metrics across four performance dimensions: Speed (First Response Time, Resolution Time), Quality (CSAT, QA Score), Compliance (SLA Breach Rate, Escalation Rate), and Productivity (Tickets per Agent, Reopen Rate). PostgreSQL queries automated the extraction and transformation of ticket data from the CRM and Jira databases into a clean reporting layer. Power BI dashboards refreshed daily, providing a single source of truth with drill-through capability to individual agent and ticket level.</p>
+          </div>
+          <div class="story-section">
+            <div class="story-label">💡 Key Findings &amp; Recommendations</div>
+            <p class="proj-story">The dashboard immediately surfaced that the top 3 complaint drivers — billing errors, delivery delays, and account access — accounted for 74% of all SLA breaches. These were systemic process issues, not agent skill gaps. I presented this finding with a recommendation to route these ticket types to a specialist handling team, which was implemented. CSAT improved by 11 points over the following quarter. Reporting time dropped from 3 days to 4 hours.</p>
+          </div>
+          <div class="impact-row">
+            <div class="impact-chip">70%<span>Reduction in reporting time</span></div>
+            <div class="impact-chip">+11pts<span>CSAT improvement Q-on-Q</span></div>
+            <div class="impact-chip">74%<span>SLA breaches traced to 3 drivers</span></div>
+            <div class="impact-chip">14 KPIs<span>Unified into one dashboard</span></div>
+          </div>
+          <div class="proj-tags"><span class="tag">PostgreSQL</span><span class="tag">Power BI</span><span class="tag">Jira</span><span class="tag">KPI Architecture</span><span class="tag">CRM Analytics</span></div>
+        </div>
+        <div class="proj-chart-area">
+          <h4>📊 SLA Breach Rate by Ticket Category</h4>
+          <canvas id="proj4Chart" height="220"></canvas>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="tools-section" id="tools">
+  <div class="section-inner">
+    <div class="section-tag" style="color:var(--gold);">Technology Stack</div>
+    <h2 class="section-title" style="color:#fff;">Tools &amp; <span style="color:var(--gold);">Platforms</span></h2>
+    <div class="tools-grid">
+      <div class="tool-item"><div class="tool-icon">⚡</div><div class="tool-name">Power BI</div><div class="tool-level">Advanced · DAX · M</div><div class="level-bar"><div class="level-fill" style="width:90%"></div></div></div>
+      <div class="tool-item"><div class="tool-icon">📊</div><div class="tool-name">Microsoft Excel</div><div class="tool-level">Expert · Advanced Analytics</div><div class="level-bar"><div class="level-fill" style="width:95%"></div></div></div>
+      <div class="tool-item"><div class="tool-icon">🗄️</div><div class="tool-name">PostgreSQL</div><div class="tool-level">Intermediate–Advanced</div><div class="level-bar"><div class="level-fill" style="width:80%"></div></div></div>
+      <div class="tool-item"><div class="tool-icon">🔵</div><div class="tool-name">Power Query</div><div class="tool-level">Advanced · ETL</div><div class="level-bar"><div class="level-fill" style="width:88%"></div></div></div>
+      <div class="tool-item"><div class="tool-icon">📋</div><div class="tool-name">Jira Reporting</div><div class="tool-level">Ops &amp; Ticket Analytics</div><div class="level-bar"><div class="level-fill" style="width:75%"></div></div></div>
+      <div class="tool-item"><div class="tool-icon">👥</div><div class="tool-name">HRIS Systems</div><div class="tool-level">HR Data Extraction</div><div class="level-bar"><div class="level-fill" style="width:78%"></div></div></div>
+      <div class="tool-item"><div class="tool-icon">🎯</div><div class="tool-name">KPI Frameworks</div><div class="tool-level">Architecture &amp; Design</div><div class="level-bar"><div class="level-fill" style="width:92%"></div></div></div>
+      <div class="tool-item"><div class="tool-icon">🤝</div><div class="tool-name">CRM Platforms</div><div class="tool-level">Data Analysis &amp; Reporting</div><div class="level-bar"><div class="level-fill" style="width:74%"></div></div></div>
+      <div class="tool-item"><div class="tool-icon">📐</div><div class="tool-name">Data Modelling</div><div class="tool-level">Star Schema · Relationships</div><div class="level-bar"><div class="level-fill" style="width:85%"></div></div></div>
+      <div class="tool-item"><div class="tool-icon">📦</div><div class="tool-name">Workforce Analytics</div><div class="tool-level">HR · Operations · CX</div><div class="level-bar"><div class="level-fill" style="width:93%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRY POSITIONING -->
+<section class="positioning" id="industries">
+  <div class="section-inner">
+    <div class="section-tag" style="color:var(--gold);">Strategic Positioning</div>
+    <h2 class="section-title" style="color:#fff;">Industry <span style="color:var(--gold);">Alignment</span></h2>
+    <div class="pos-grid">
+      <div class="pos-card">
+        <div class="pos-sector">💰 Financial Services</div>
+        <ul class="pos-items">
+          <li>Cost-to-revenue ratio optimisation</li>
+          <li>Risk-adjusted workforce modelling</li>
+          <li>Compliance metrics &amp; audit readiness</li>
+          <li>Performance efficiency analytics</li>
+          <li>Revenue per employee tracking</li>
+        </ul>
+        <div class="pos-quote">"Risk-adjusted workforce modelling that directly supports financial resilience and regulatory confidence."</div>
+      </div>
+      <div class="pos-card">
+        <div class="pos-sector">💻 Technology</div>
+        <ul class="pos-items">
+          <li>Scalable workforce intelligence</li>
+          <li>Growth-aligned headcount strategy</li>
+          <li>Attrition reduction frameworks</li>
+          <li>Agile capacity planning</li>
+          <li>SaaS customer analytics</li>
+        </ul>
+        <div class="pos-quote">"Workforce intelligence infrastructure built for scale-up and hypergrowth environments where speed of decision matters."</div>
+      </div>
+      <div class="pos-card">
+        <div class="pos-sector">🏥 Care &amp; Healthcare</div>
+        <ul class="pos-items">
+          <li>Service continuity through workforce modelling</li>
+          <li>Burnout risk analytics</li>
+          <li>Staffing ratio optimisation</li>
+          <li>Budget-controlled expansion planning</li>
+          <li>Patient/service load forecasting</li>
+        </ul>
+        <div class="pos-quote">"Analytical frameworks that protect service continuity while controlling people costs and reducing burnout risk."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-text">
+        <div class="section-tag" style="color:var(--gold);">Get In Touch</div>
+        <h2>Ready to Deliver <span style="color:var(--gold);">Strategic Intelligence</span></h2>
+        <p>Available for remote consulting engagements, contract analytics roles, and fractional Head of Analytics positions across Financial, Technology, and Care sectors.</p>
+        <div class="contact-links">
+          <a href="mailto:olajumokemedunoye@gmail.com" class="contact-link"><span>✉️</span> olajumokemedunoye@gmail.com</a>
+          <a href="https://www.linkedin.com/in/olajumoke-medunoye" target="_blank" class="contact-link"><span>💼</span> linkedin.com/in/olajumoke-medunoye</a>
+          <a href="https://github.com/olajumokemedunoye-png" target="_blank" class="contact-link"><span>🐙</span> github.com/olajumokemedunoye-png</a>
+        </div>
+      </div>
+      <div class="availability">
+        <div class="avail-badge"><div class="avail-dot"></div> Open to Opportunities</div>
+        <p style="color:#e2e8f0;font-weight:600;margin-bottom:12px;">Current Availability</p>
+        <ul class="avail-items">
+          <li>Remote-first engagements preferred</li>
+          <li>Contract &amp; consulting roles</li>
+          <li>Fractional Analytics Consultant</li>
+          <li>Financial · Tech · Care sectors</li>
+          <li>Immediate start available</li>
+          <li>UK-based · Global remote delivery</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Olajumoke O. Medunoye · Workforce &amp; Customer Analytics Consultant · CIPD · MSc HRM</p>
+</footer>
+
+<script>
+// RADAR
+new Chart(document.getElementById('radarChart'),{type:'radar',data:{labels:['Power BI','Excel','PostgreSQL','Workforce Planning','KPI Design','Stakeholder Comms','Data Modelling','HR Analytics'],datasets:[{label:'Proficiency',data:[90,95,80,92,90,88,85,94],backgroundColor:'rgba(37,99,235,0.12)',borderColor:'#2563eb',pointBackgroundColor:'#f59e0b',pointBorderColor:'#fff',borderWidth:2}]},options:{responsive:true,scales:{r:{min:0,max:100,ticks:{display:false},grid:{color:'#e2e8f0'},pointLabels:{font:{size:10.5},color:'#475569'}}},plugins:{legend:{display:false}}}});
+
+// ATTRITION TREND
+new Chart(document.getElementById('attritionChart'),{type:'line',data:{labels:['Q1','Q2','Q3','Q4','Q5','Q6','Q7','Q8'],datasets:[{label:'Attrition Rate %',data:[22,24,21,26,28,22,17,13],borderColor:'#ef4444',backgroundColor:'rgba(239,68,68,0.07)',tension:0.4,fill:true,borderWidth:2.5,pointRadius:4,pointBackgroundColor:'#ef4444'},{label:'Post-Intervention',data:[null,null,null,null,28,22,17,13],borderColor:'#22c55e',backgroundColor:'rgba(34,197,94,0.07)',tension:0.4,fill:true,borderDash:[6,4],borderWidth:2.5,pointRadius:4,pointBackgroundColor:'#22c55e'}]},options:{responsive:true,plugins:{legend:{labels:{font:{size:10.5},color:'#475569'}}},scales:{y:{ticks:{color:'#64748b',font:{size:10}},grid:{color:'#f1f5f9'}},x:{ticks:{color:'#64748b',font:{size:10}},grid:{display:false}}}}});
+
+// KPI IMPACT
+new Chart(document.getElementById('kpiChart'),{type:'bar',data:{labels:['Reporting Speed','Cost Efficiency','Retention Rate','SLA Accuracy','Decision Speed'],datasets:[{label:'Before',data:[38,52,66,70,42],backgroundColor:'#bfdbfe',borderRadius:5},{label:'After',data:[85,79,83,94,78],backgroundColor:'#2563eb',borderRadius:5}]},options:{responsive:true,plugins:{legend:{labels:{font:{size:10.5},color:'#475569'}}},scales:{y:{max:100,ticks:{color:'#64748b',font:{size:10}},grid:{color:'#f1f5f9'}},x:{ticks:{color:'#64748b',font:{size:10}},grid:{display:false}}}}});
+
+// DOMAIN DOUGHNUT
+new Chart(document.getElementById('sectorChart'),{type:'doughnut',data:{labels:['HR & Workforce','Customer Ops','Financial Services','Care / Healthcare','Technology'],datasets:[{data:[32,25,20,13,10],backgroundColor:['#1a3a6b','#2563eb','#f59e0b','#22c55e','#8b5cf6'],borderWidth:0,hoverOffset:8}]},options:{responsive:true,cutout:'62%',plugins:{legend:{position:'bottom',labels:{font:{size:10.5},color:'#475569',padding:10}}}}});
+
+// PROJECT 1 — Attrition by Tenure Band
+new Chart(document.getElementById('proj1Chart'),{type:'bar',data:{labels:['0–6 Months','6–18 Months','18m–3 Years','3+ Years'],datasets:[{label:'Exit Rate %',data:[31,37,18,14],backgroundColor:['#ef4444','#f97316','#f59e0b','#22c55e'],borderRadius:6}]},options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false}},scales:{x:{max:50,ticks:{color:'#64748b',font:{size:10}},grid:{color:'#f1f5f9'}},y:{ticks:{color:'#475569',font:{size:10.5}},grid:{display:false}}}}});
+
+// PROJECT 2 — Headcount Scenarios
+new Chart(document.getElementById('proj2Chart'),{type:'line',data:{labels:['Now','Q1','Q2','Q3','Q4','Q5','Q6'],datasets:[{label:'Conservative',data:[180,196,214,228,242,256,270],borderColor:'#94a3b8',tension:0.4,borderWidth:2,pointRadius:3,borderDash:[4,3]},{label:'Base',data:[180,202,228,268,310,356,400],borderColor:'#2563eb',tension:0.4,borderWidth:2.5,pointRadius:3},{label:'Accelerated',data:[180,215,262,316,362,400,420],borderColor:'#22c55e',tension:0.4,borderWidth:2,pointRadius:3,borderDash:[2,2]}]},options:{responsive:true,plugins:{legend:{labels:{font:{size:10},color:'#475569'}}},scales:{y:{ticks:{color:'#64748b',font:{size:10}},grid:{color:'#f1f5f9'}},x:{ticks:{color:'#64748b',font:{size:10}},grid:{display:false}}}}});
+
+// PROJECT 3 — Absence Risk by Day
+new Chart(document.getElementById('proj3Chart'),{type:'bar',data:{labels:['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],datasets:[{label:'Absence Rate %',data:[18,8,7,9,16,11,13],backgroundColor:['#ef4444','#22c55e','#22c55e','#22c55e','#f97316','#f59e0b','#f59e0b'],borderRadius:6}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{ticks:{color:'#64748b',font:{size:10}},grid:{color:'#f1f5f9'}},x:{ticks:{color:'#475569',font:{size:10.5}},grid:{display:false}}}}});
+
+// PROJECT 4 — SLA Breach by Category
+new Chart(document.getElementById('proj4Chart'),{type:'bar',data:{labels:['Billing Errors','Delivery Delays','Account Access','Returns','Tech Issues','Other'],datasets:[{label:'SLA Breach Rate %',data:[29,26,19,12,9,5],backgroundColor:['#ef4444','#f97316','#f59e0b','#94a3b8','#94a3b8','#cbd5e1'],borderRadius:6}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{ticks:{color:'#64748b',font:{size:10}},grid:{color:'#f1f5f9'}},x:{ticks:{color:'#475569',font:{size:9.5}},grid:{display:false}}}}});
+</script>
+</body>
+</html>
