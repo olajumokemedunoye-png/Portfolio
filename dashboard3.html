@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f1623;color:#e2e8f0;padding:20px;}
+.download-btn{position:fixed;bottom:20px;right:20px;background:#3b82f6;color:#fff;font-weight:800;font-size:.85rem;padding:12px 22px;border-radius:10px;border:none;cursor:pointer;box-shadow:0 4px 20px rgba(59,130,246,.4);z-index:999;display:flex;align-items:center;gap:8px;transition:transform .2s;}
+.download-btn:hover{transform:translateY(-2px);}
+.dash-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid #1e3a5f;}
+.dash-title{font-size:1.3rem;font-weight:800;color:#fff;}.dash-title span{color:#3b82f6;}
+.dash-sub{font-size:.78rem;color:#64748b;margin-top:3px;}
+.badge{background:#3b82f6;color:#fff;font-size:.7rem;font-weight:800;padding:4px 12px;border-radius:20px;}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px;}
+.kpi{background:#1a2744;border:1px solid #1e3a5f;border-radius:12px;padding:18px;position:relative;overflow:hidden;}
+.kpi::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--c);}
+.kpi-val{font-size:2rem;font-weight:800;color:#fff;margin-bottom:2px;}
+.kpi-label{font-size:.72rem;color:#64748b;text-transform:uppercase;letter-spacing:.8px;}
+.kpi-change{font-size:.75rem;margin-top:6px;font-weight:600;}
+.good{color:#22c55e;}.warn{color:#f59e0b;}.bad{color:#ef4444;}
+.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.charts-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px;}
+.chart-box{background:#1a2744;border:1px solid #1e3a5f;border-radius:12px;padding:18px;}
+.chart-title{font-size:.82rem;font-weight:700;color:#94a3b8;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+.insights-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:14px;}
+.insight-box{background:#1a2744;border:1px solid #1e3a5f;border-radius:10px;padding:14px;}
+.insight-label{font-size:.68rem;font-weight:800;color:#3b82f6;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
+.insight-text{font-size:.82rem;color:#94a3b8;line-height:1.6;}
+.insight-text strong{color:#e2e8f0;}
+.agent-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.agent-name{font-size:.75rem;color:#94a3b8;min-width:70px;}
+.agent-bar{flex:1;height:8px;background:rgba(255,255,255,.08);border-radius:4px;overflow:hidden;}
+.agent-fill{height:100%;border-radius:4px;}
+.agent-score{font-size:.72rem;font-weight:700;min-width:36px;text-align:right;}
+.filter-bar{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;align-items:center;}
+.filter-label{font-size:.72rem;color:#64748b;font-weight:600;}
+.filter-btn{background:#1a2744;border:1px solid #1e3a5f;color:#94a3b8;font-size:.72rem;font-weight:700;padding:5px 12px;border-radius:6px;cursor:pointer;}
+.filter-btn.active{background:#3b82f6;border-color:#3b82f6;color:#fff;}
+</style>
+</head>
+<body>
+<button class="download-btn" onclick="downloadDash()">📥 Download dashboard.png</button>
+
+<div class="dash-header">
+  <div>
+    <div class="dash-title">📞 Customer Service <span>Performance Dashboard</span></div>
+    <div class="dash-sub">Operations Analytics · Contact Centre · FY2024</div>
+  </div>
+  <div style="text-align:right;">
+    <div class="badge">PostgreSQL · Power BI · Jira</div>
+    <div style="font-size:.72rem;color:#475569;margin-top:6px;">Olajumoke O. Medunoye</div>
+  </div>
+</div>
+
+<div class="filter-bar">
+  <span class="filter-label">Channel:</span>
+  <button class="filter-btn active">All Channels</button>
+  <button class="filter-btn">Phone</button>
+  <button class="filter-btn">Email</button>
+  <button class="filter-btn">Live Chat</button>
+  <button class="filter-btn">Self-Service</button>
+</div>
+
+<div class="kpi-row">
+  <div class="kpi" style="--c:#3b82f6;"><div class="kpi-val">12,480</div><div class="kpi-label">Total Tickets</div><div class="kpi-change warn">▲ 8% vs last quarter</div></div>
+  <div class="kpi" style="--c:#f59e0b;"><div class="kpi-val">4.2 hrs</div><div class="kpi-label">Avg Response Time</div><div class="kpi-change good">▼ 1.8hrs improvement</div></div>
+  <div class="kpi" style="--c:#ef4444;"><div class="kpi-val">18.6 hrs</div><div class="kpi-label">Avg Resolution Time</div><div class="kpi-change good">▼ 6.4hrs improvement</div></div>
+  <div class="kpi" style="--c:#22c55e;"><div class="kpi-val">75/100</div><div class="kpi-label">CSAT Score</div><div class="kpi-change good">▲ +11pts this quarter</div></div>
+</div>
+
+<div class="charts-row">
+  <div class="chart-box">
+    <div class="chart-title"><span class="dot" style="background:#ef4444;"></span>SLA Breach Rate by Issue Type</div>
+    <canvas id="slaChart" height="200"></canvas>
+  </div>
+  <div class="chart-box">
+    <div class="chart-title"><span class="dot" style="background:#22c55e;"></span>CSAT Score Trend (12 Months)</div>
+    <canvas id="csatChart" height="200"></canvas>
+  </div>
+</div>
+
+<div class="charts-row-3">
+  <div class="chart-box">
+    <div class="chart-title"><span class="dot" style="background:#3b82f6;"></span>Tickets by Issue Category</div>
+    <canvas id="ticketChart" height="180"></canvas>
+  </div>
+  <div class="chart-box">
+    <div class="chart-title"><span class="dot" style="background:#f59e0b;"></span>Response Time Trend</div>
+    <canvas id="responseChart" height="180"></canvas>
+  </div>
+  <div class="chart-box">
+    <div class="chart-title"><span class="dot" style="background:#8b5cf6;"></span>Agent Performance Score</div>
+    <div style="margin-top:6px;">
+      <div class="agent-row"><span class="agent-name">Agent A</span><div class="agent-bar"><div class="agent-fill" style="width:94%;background:#22c55e;"></div></div><span class="agent-score" style="color:#22c55e;">94</span></div>
+      <div class="agent-row"><span class="agent-name">Agent B</span><div class="agent-bar"><div class="agent-fill" style="width:88%;background:#22c55e;"></div></div><span class="agent-score" style="color:#22c55e;">88</span></div>
+      <div class="agent-row"><span class="agent-name">Agent C</span><div class="agent-bar"><div class="agent-fill" style="width:81%;background:#3b82f6;"></div></div><span class="agent-score" style="color:#3b82f6;">81</span></div>
+      <div class="agent-row"><span class="agent-name">Agent D</span><div class="agent-bar"><div class="agent-fill" style="width:74%;background:#f59e0b;"></div></div><span class="agent-score" style="color:#f59e0b;">74</span></div>
+      <div class="agent-row"><span class="agent-name">Agent E</span><div class="agent-bar"><div class="agent-fill" style="width:61%;background:#ef4444;"></div></div><span class="agent-score" style="color:#ef4444;">61</span></div>
+      <div class="agent-row"><span class="agent-name">Agent F</span><div class="agent-bar"><div class="agent-fill" style="width:55%;background:#ef4444;"></div></div><span class="agent-score" style="color:#ef4444;">55</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="insights-row">
+  <div class="insight-box"><div class="insight-label">🔴 Root Cause</div><div class="insight-text"><strong>74% of SLA breaches</strong> caused by just 3 issue types: billing errors, delivery delays, and account access — systemic process failures, not agent skill gaps</div></div>
+  <div class="insight-box"><div class="insight-label">✅ Win</div><div class="insight-text">Routing the top 3 issue types to a <strong>specialist team</strong> improved CSAT by 11 points and reduced repeat contacts by 28% in one quarter</div></div>
+  <div class="insight-box"><div class="insight-label">⚡ Efficiency</div><div class="insight-text">Consolidating <strong>3 data sources</strong> into one Power BI dashboard reduced reporting time from 3 days to 4 hours — a 70% efficiency gain</div></div>
+</div>
+
+<script>
+const co={responsive:true,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#64748b',font:{size:10}},grid:{display:false}},y:{ticks:{color:'#64748b',font:{size:10}},grid:{color:'rgba(255,255,255,0.05)'}}}};
+
+new Chart(document.getElementById('slaChart'),{type:'bar',data:{labels:['Billing','Delivery','Acc.Access','Returns','Tech','Other'],datasets:[{data:[29,26,19,12,9,5],backgroundColor:['#ef4444','#f97316','#f59e0b','#94a3b8','#94a3b8','#475569'],borderRadius:6}]},options:co});
+
+new Chart(document.getElementById('csatChart'),{type:'line',data:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],datasets:[{label:'CSAT',data:[62,63,61,64,66,68,70,72,73,74,75,75],borderColor:'#22c55e',backgroundColor:'rgba(34,197,94,0.08)',tension:0.4,fill:true,borderWidth:2.5,pointRadius:3,pointBackgroundColor:'#22c55e'},{label:'Target',data:[70,70,70,70,70,70,70,70,70,70,70,70],borderColor:'#f59e0b',borderDash:[5,3],borderWidth:1.5,pointRadius:0}]},options:{...co,plugins:{legend:{labels:{color:'#64748b',font:{size:10}}}}}});
+
+new Chart(document.getElementById('ticketChart'),{type:'doughnut',data:{labels:['Billing','Delivery','Acc.Access','Returns','Tech','Other'],datasets:[{data:[29,26,19,12,9,5],backgroundColor:['#ef4444','#f97316','#f59e0b','#3b82f6','#8b5cf6','#475569'],borderWidth:0,hoverOffset:6}]},options:{responsive:true,cutout:'60%',plugins:{legend:{position:'bottom',labels:{color:'#64748b',font:{size:9},padding:8}}}}});
+
+new Chart(document.getElementById('responseChart'),{type:'line',data:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],datasets:[{label:'Response (hrs)',data:[8.2,7.8,7.1,6.8,6.2,5.8,5.4,5.1,4.8,4.4,4.2,4.2],borderColor:'#f59e0b',backgroundColor:'rgba(245,158,11,0.08)',tension:0.4,fill:true,borderWidth:2,pointRadius:3,pointBackgroundColor:'#f59e0b'}]},options:co});
+
+document.querySelectorAll('.filter-btn').forEach(b=>{b.addEventListener('click',function(){document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));this.classList.add('active');});});
+function downloadDash(){const btn=document.querySelector('.download-btn');btn.style.display='none';html2canvas(document.body,{backgroundColor:'#0f1623',scale:2,useCORS:true}).then(canvas=>{const a=document.createElement('a');a.download='dashboard-customer-service.png';a.href=canvas.toDataURL('image/png');a.click();btn.style.display='flex';});}
+</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f1623;color:#e2e8f0;padding:20px;}
+.download-btn{position:fixed;bottom:20px;right:20px;background:#8b5cf6;color:#fff;font-weight:800;font-size:.85rem;padding:12px 22px;border-radius:10px;border:none;cursor:pointer;box-shadow:0 4px 20px rgba(139,92,246,.4);z-index:999;display:flex;align-items:center;gap:8px;transition:transform .2s;}
+.download-btn:hover{transform:translateY(-2px);}
+.dash-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid #1e3a5f;}
+.dash-title{font-size:1.3rem;font-weight:800;color:#fff;}.dash-title span{color:#8b5cf6;}
+.dash-sub{font-size:.78rem;color:#64748b;margin-top:3px;}
+.badge{background:#8b5cf6;color:#fff;font-size:.7rem;font-weight:800;padding:4px 12px;border-radius:20px;}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px;}
+.kpi{background:#1a2744;border:1px solid #1e3a5f;border-radius:12px;padding:18px;position:relative;overflow:hidden;}
+.kpi::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--c);}
+.kpi-val{font-size:2rem;font-weight:800;color:#fff;margin-bottom:2px;}
+.kpi-label{font-size:.72rem;color:#64748b;text-transform:uppercase;letter-spacing:.8px;}
+.kpi-change{font-size:.75rem;margin-top:6px;font-weight:600;}
+.good{color:#22c55e;}.warn{color:#f59e0b;}.bad{color:#ef4444;}
+.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.charts-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px;}
+.chart-box{background:#1a2744;border:1px solid #1e3a5f;border-radius:12px;padding:18px;}
+.chart-title{font-size:.82rem;font-weight:700;color:#94a3b8;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+.funnel-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.funnel-label{font-size:.78rem;color:#94a3b8;min-width:90px;}
+.funnel-bar-wrap{flex:1;background:rgba(255,255,255,.05);border-radius:4px;height:26px;overflow:hidden;position:relative;}
+.funnel-fill{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:10px;font-size:.75rem;font-weight:700;color:#fff;transition:width .8s ease;}
+.funnel-count{font-size:.78rem;font-weight:700;color:#e2e8f0;min-width:40px;text-align:right;}
+.conv{font-size:.68rem;color:#64748b;min-width:50px;text-align:right;}
+.insights-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:14px;}
+.insight-box{background:#1a2744;border:1px solid #1e3a5f;border-radius:10px;padding:14px;}
+.insight-label{font-size:.68rem;font-weight:800;color:#8b5cf6;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
+.insight-text{font-size:.82rem;color:#94a3b8;line-height:1.6;}
+.insight-text strong{color:#e2e8f0;}
+.filter-bar{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;align-items:center;}
+.filter-label{font-size:.72rem;color:#64748b;font-weight:600;}
+.filter-btn{background:#1a2744;border:1px solid #1e3a5f;color:#94a3b8;font-size:.72rem;font-weight:700;padding:5px 12px;border-radius:6px;cursor:pointer;}
+.filter-btn.active{background:#8b5cf6;border-color:#8b5cf6;color:#fff;}
+</style>
+</head>
+<body>
+<button class="download-btn" onclick="downloadDash()">📥 Download dashboard.png</button>
+
+<div class="dash-header">
+  <div>
+    <div class="dash-title">🎯 Recruitment Pipeline <span>Analysis Dashboard</span></div>
+    <div class="dash-sub">Talent Acquisition Analytics · Technology Sector · FY2024</div>
+  </div>
+  <div style="text-align:right;">
+    <div class="badge">SQL · Excel · Power BI</div>
+    <div style="font-size:.72rem;color:#475569;margin-top:6px;">Olajumoke O. Medunoye</div>
+  </div>
+</div>
+
+<div class="filter-bar">
+  <span class="filter-label">Role Level:</span>
+  <button class="filter-btn active">All Levels</button>
+  <button class="filter-btn">Junior</button>
+  <button class="filter-btn">Mid-Level</button>
+  <button class="filter-btn">Senior</button>
+  <button class="filter-btn">Lead</button>
+</div>
+
+<div class="kpi-row">
+  <div class="kpi" style="--c:#8b5cf6;"><div class="kpi-val">420</div><div class="kpi-label">Total Applications</div><div class="kpi-change warn">▲ 18% vs Q3</div></div>
+  <div class="kpi" style="--c:#3b82f6;"><div class="kpi-val">148</div><div class="kpi-label">Interviews Conducted</div><div class="kpi-change good">35% conversion rate</div></div>
+  <div class="kpi" style="--c:#f59e0b;"><div class="kpi-val">61</div><div class="kpi-label">Offers Made</div><div class="kpi-change warn">41% interview→offer</div></div>
+  <div class="kpi" style="--c:#22c55e;"><div class="kpi-val">48</div><div class="kpi-label">Hires Completed</div><div class="kpi-change good">▲ 79% acceptance rate</div></div>
+</div>
+
+<div class="charts-row">
+  <div class="chart-box">
+    <div class="chart-title"><span class="dot" style="background:#8b5cf6;"></span>Recruitment Funnel — Stage by Stage</div>
+    <div style="margin-top:8px;">
+      <div class="funnel-row"><span class="funnel-label">Applied</span><div class="funnel-bar-wrap"><div class="funnel-fill" style="width:100%;background:#8b5cf6;">420</div></div><span class="funnel-count">420</span><span class="conv">—</span></div>
+      <div class="funnel-row"><span class="funnel-label">Screened</span><div class="funnel-bar-wrap"><div class="funnel-fill" style="width:67%;background:#6d28d9;">280</div></div><span class="funnel-count">280</span><span class="conv">67%</span></div>
+      <div class="funnel-row"><span class="funnel-label">Assessment</span><div class="funnel-bar-wrap"><div class="funnel-fill" style="width:35%;background:#3b82f6;">148</div></div><span class="funnel-count">148</span><span class="conv">53%</span></div>
+      <div class="funnel-row"><span class="funnel-label">Interview</span><div class="funnel-bar-wrap"><div class="funnel-fill" style="width:21%;background:#2563eb;">89</div></div><span class="funnel-count">89</span><span class="conv">60%</span></div>
+      <div class="funnel-row"><span class="funnel-label">Offer</span><div class="funnel-bar-wrap"><div class="funnel-fill" style="width:15%;background:#f59e0b;">61</div></div><span class="funnel-count">61</span><span class="conv">69%</span></div>
+      <div class="funnel-row"><span class="funnel-label">Hired</span><div class="funnel-bar-wrap"><div class="funnel-fill" style="width:11%;background:#22c55e;">48</div></div><span class="funnel-count">48</span><span class="conv">79%</span></div>
+    </div>
+  </div>
+  <div class="chart-box">
+    <div class="chart-title"><span class="dot" style="background:#f59e0b;"></span>Time-to-Hire by Role Level (Days)</div>
+    <canvas id="tthChart" height="220"></canvas>
+  </div>
+</div>
+
+<div class="charts-row-3">
+  <div class="chart-box">
+    <div class="chart-title"><span class="dot" style="background:#3b82f6;"></span>Hiring by Source</div>
+    <canvas id="sourceChart" height="180"></canvas>
+  </div>
+  <div class="chart-box">
+    <div class="chart-title"><span class="dot" style="background:#22c55e;"></span>Monthly Hiring Trend</div>
+    <canvas id="hiringTrend" height="180"></canvas>
+  </div>
+  <div class="chart-box">
+    <div class="chart-title"><span class="dot" style="background:#ef4444;"></span>Drop-off by Stage</div>
+    <canvas id="dropoffChart" height="180"></canvas>
+  </div>
+</div>
+
+<div class="insights-row">
+  <div class="insight-box"><div class="insight-label">⚠️ Pipeline Leak</div><div class="insight-text"><strong>47% of drop-off</strong> occurred at the assessment stage — placed too early in the process. Resequencing reduced pipeline time by 11 days</div></div>
+  <div class="insight-box"><div class="insight-label">🕐 Speed Gap</div><div class="insight-text">Senior role hiring takes <strong>2.3x longer</strong> than mid-level due to panel scheduling delays — 3 hiring managers caused 68% of late offer declines</div></div>
+  <div class="insight-box"><div class="insight-label">✅ Improvement</div><div class="insight-text">Offer acceptance rate improved from <strong>61% to 79%</strong> after fixing feedback loop delays and resequencing assessment stage</div></div>
+</div>
+
+<script>
+const co={responsive:true,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#64748b',font:{size:10}},grid:{display:false}},y:{ticks:{color:'#64748b',font:{size:10}},grid:{color:'rgba(255,255,255,0.05)'}}}};
+
+new Chart(document.getElementById('tthChart'),{type:'bar',data:{labels:['Junior','Mid-Level','Senior','Lead','Director'],datasets:[{label:'Before (days)',data:[28,35,54,62,71],backgroundColor:'rgba(139,92,246,0.4)',borderRadius:4},{label:'After (days)',data:[21,28,41,50,58],backgroundColor:'#8b5cf6',borderRadius:4}]},options:{...co,plugins:{legend:{labels:{color:'#64748b',font:{size:10}}}}}});
+
+new Chart(document.getElementById('sourceChart'),{type:'doughnut',data:{labels:['LinkedIn','Referral','Job Board','Agency','Direct','Other'],datasets:[{data:[34,28,18,10,6,4],backgroundColor:['#0077b5','#22c55e','#f59e0b','#ef4444','#8b5cf6','#475569'],borderWidth:0,hoverOffset:6}]},options:{responsive:true,cutout:'60%',plugins:{legend:{position:'bottom',labels:{color:'#64748b',font:{size:9},padding:6}}}}});
+
+new Chart(document.getElementById('hiringTrend'),{type:'line',data:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],datasets:[{data:[3,4,5,4,6,7,5,4,6,8,7,5],borderColor:'#22c55e',backgroundColor:'rgba(34,197,94,0.08)',tension:0.4,fill:true,borderWidth:2,pointRadius:3,pointBackgroundColor:'#22c55e'}]},options:co});
+
+new Chart(document.getElementById('dropoffChart'),{type:'bar',data:{labels:['Screen→Assess','Assess→Interview','Interview→Offer','Offer→Hire'],datasets:[{data:[47,23,19,11],backgroundColor:['#ef4444','#f97316','#f59e0b','#22c55e'],borderRadius:5}]},options:{...co,indexAxis:'y'}});
+
+document.querySelectorAll('.filter-btn').forEach(b=>{b.addEventListener('click',function(){document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));this.classList.add('active');});});
+function downloadDash(){const btn=document.querySelector('.download-btn');btn.style.display='none';html2canvas(document.body,{backgroundColor:'#0f1623',scale:2,useCORS:true}).then(canvas=>{const a=document.createElement('a');a.download='dashboard-recruitment-pipeline.png';a.href=canvas.toDataURL('image/png');a.click();btn.style.display='flex';});}
+</script>
+</body>
+</html>
