@@ -9,13 +9,11 @@
 :root{--navy:#0a1628;--blue:#1a3a6b;--accent:#2563eb;--gold:#f59e0b;--light:#f0f4ff;--white:#fff;--grey:#64748b;--text:#1e293b;--border:#e2e8f0;}
 *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--text);line-height:1.6;}
-
 nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.97);backdrop-filter:blur(10px);z-index:999;padding:14px 40px;display:flex;justify-content:space-between;align-items:center;}
 .nav-logo{color:var(--gold);font-weight:700;font-size:1rem;letter-spacing:1px;}
 .nav-links{display:flex;gap:24px;}
 .nav-links a{color:#cbd5e1;text-decoration:none;font-size:.82rem;letter-spacing:.5px;transition:color .2s;}
 .nav-links a:hover{color:var(--gold);}
-
 .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 60%,#1e40af 100%);min-height:100vh;display:flex;align-items:center;padding:100px 40px 60px;}
 .hero-content{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:center;}
 .hero-badge{display:inline-block;background:rgba(245,158,11,.15);border:1px solid var(--gold);color:var(--gold);padding:6px 16px;border-radius:20px;font-size:.75rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:18px;}
@@ -38,25 +36,19 @@ nav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.97);backdrop-filt
 .stat-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:18px;text-align:center;}
 .stat-num{font-size:1.8rem;font-weight:800;color:var(--gold);}
 .stat-label{color:#94a3b8;font-size:.73rem;margin-top:3px;}
-
 section{padding:76px 40px;}
 .section-inner{max-width:1100px;margin:0 auto;}
 .section-tag{color:var(--accent);font-size:.73rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
 .section-title{font-size:1.85rem;font-weight:800;color:var(--navy);margin-bottom:36px;}
 .section-title span{color:var(--accent);}
-
-/* ABOUT */
 .about{background:#fff;}
 .about-grid{display:grid;grid-template-columns:2fr 1fr;gap:50px;align-items:start;}
 .about-text p{color:#475569;font-size:1rem;margin-bottom:14px;line-height:1.85;}
 .highlight{background:linear-gradient(90deg,#eff6ff,#fff);border-left:4px solid var(--accent);padding:16px 20px;border-radius:0 8px 8px 0;font-style:italic;color:var(--navy);font-weight:500;margin:20px 0;}
-.about-photo-wrap img{width:100%;max-width:240px;border-radius:14px;border:3px solid #bfdbfe;box-shadow:0 10px 30px rgba(37,99,235,0.15);display:block;margin:0 auto 20px;object-fit:cover;aspect-ratio:3/4;}
 .quals{display:flex;flex-direction:column;gap:10px;}
 .qual-item{background:var(--light);border:1px solid #bfdbfe;border-radius:8px;padding:13px 16px;}
 .qual-title{font-weight:700;font-size:.84rem;color:var(--blue);}
 .qual-sub{font-size:.74rem;color:var(--grey);margin-top:2px;}
-
-/* COMPETENCIES */
 .competencies{background:var(--navy);}
 .comp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
 .comp-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:24px;transition:transform .3s,border-color .3s;}
@@ -66,53 +58,37 @@ section{padding:76px 40px;}
 .comp-list{list-style:none;}
 .comp-list li{color:#94a3b8;font-size:.81rem;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.06);}
 .comp-list li::before{content:'▸ ';color:var(--accent);}
-
-/* PROJECTS */
 .projects{background:#f8fafc;}
 .proj-card{background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;margin-bottom:40px;box-shadow:0 4px 24px rgba(0,0,0,.07);}
-
-/* project header bar */
 .proj-header-bar{padding:24px 28px 0;}
 .proj-sector{font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:20px;display:inline-block;margin-bottom:10px;}
 .fin{background:#fef3c7;color:#92400e;}.tech{background:#ede9fe;color:#5b21b6;}.care{background:#d1fae5;color:#065f46;}.ops{background:#fee2e2;color:#991b1b;}
 .proj-title{font-weight:800;font-size:1.15rem;color:var(--navy);margin-bottom:6px;}
-
-/* tools badges */
 .tools-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 16px;}
 .tool-badge{display:flex;align-items:center;gap:5px;background:var(--navy);color:#e2e8f0;font-size:.75rem;font-weight:700;padding:5px 12px;border-radius:6px;}
 .tool-badge span{font-size:.9rem;}
-
-/* project body grid */
 .proj-body-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
 .proj-left{padding:0 28px 28px;}
 .proj-right{background:#f8fafc;border-left:1px solid var(--border);padding:20px 22px;}
-
 .story-label{font-weight:700;font-size:.72rem;color:var(--accent);text-transform:uppercase;letter-spacing:.8px;margin:14px 0 5px;}
 .proj-story{color:#475569;font-size:.86rem;line-height:1.8;}
-
-/* key insights */
 .insights-box{background:linear-gradient(135deg,#eff6ff,#f0fdf4);border:1px solid #bfdbfe;border-radius:10px;padding:16px 18px;margin-top:14px;}
-.insights-title{font-weight:800;font-size:.82rem;color:var(--navy);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.insights-title{font-weight:800;font-size:.82rem;color:var(--navy);margin-bottom:10px;}
 .insight-item{display:flex;align-items:flex-start;gap:8px;margin-bottom:7px;font-size:.83rem;color:#1e40af;line-height:1.5;}
 .insight-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:6px;}
-
-/* impact chips */
 .impact-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
 .impact-chip{background:linear-gradient(135deg,#eff6ff,#dbeafe);border:1px solid #bfdbfe;border-radius:8px;padding:8px 12px;font-size:.76rem;font-weight:700;color:var(--blue);}
 .impact-chip span{display:block;font-size:.66rem;color:var(--grey);font-weight:400;}
-
-/* KPI cards */
+.dash-link-btn{display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:var(--navy);color:var(--gold);font-size:.82rem;font-weight:700;padding:10px 18px;border-radius:8px;text-decoration:none;border:1px solid var(--gold);transition:all .2s;}
+.dash-link-btn:hover{background:var(--gold);color:var(--navy);}
 .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px;}
 .kpi-card{background:var(--navy);border-radius:10px;padding:12px 14px;text-align:center;}
 .kpi-val{font-size:1.3rem;font-weight:800;color:var(--gold);}
 .kpi-label{font-size:.68rem;color:#94a3b8;margin-top:2px;}
-/* chart area */
-.chart-title{font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.chart-title{font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:10px;}
 .chart-tabs{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;}
 .ctab{background:#e2e8f0;color:#64748b;font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:4px;cursor:pointer;border:none;}
 .ctab.active{background:var(--accent);color:#fff;}
-
-/* TOOLS SECTION */
 .tools-section{background:var(--navy);}
 .tools-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
 .tool-item{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:18px;text-align:center;transition:transform .2s,border-color .2s;}
@@ -122,16 +98,10 @@ section{padding:76px 40px;}
 .tool-level{font-size:.7rem;color:#64748b;margin-top:3px;}
 .level-bar{height:4px;background:rgba(255,255,255,.1);border-radius:2px;margin-top:7px;overflow:hidden;}
 .level-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--gold));border-radius:2px;}
-.github-link{display:inline-flex;align-items:center;gap:7px;margin-top:14px;background:#0f172a;color:#7dd3fc;font-size:.8rem;font-weight:700;padding:8px 16px;border-radius:6px;text-decoration:none;border:1px solid #1e3a5f;transition:all .2s;}
-.github-link:hover{background:#1e3a6b;color:#f59e0b;border-color:var(--gold);}
-
-/* SKILLS */
 .skills-section{background:#fff;}
 .charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
 .chart-card{background:#f8fafc;border-radius:14px;padding:24px;border:1px solid var(--border);}
 .chart-card h3{font-size:.92rem;font-weight:700;color:var(--navy);margin-bottom:16px;}
-
-/* INDUSTRY */
 .positioning{background:linear-gradient(135deg,#1e3a8a,#1e40af);}
 .pos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .pos-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:24px;}
@@ -140,8 +110,6 @@ section{padding:76px 40px;}
 .pos-items li{color:#94a3b8;font-size:.81rem;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.07);}
 .pos-items li::before{content:'✦ ';color:var(--gold);font-size:.68rem;}
 .pos-quote{margin-top:12px;padding-top:11px;border-top:1px solid rgba(255,255,255,.1);color:#bfdbfe;font-size:.79rem;font-style:italic;}
-
-/* CONTACT */
 .contact{background:var(--navy);}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
 .contact-text h2{color:#fff;font-size:1.6rem;font-weight:800;margin-bottom:12px;}
@@ -156,15 +124,7 @@ section{padding:76px 40px;}
 .avail-items{list-style:none;}
 .avail-items li{color:#94a3b8;font-size:.85rem;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.06);}
 .avail-items li::before{content:'✓ ';color:#4ade80;}
-
-/* LINKEDIN CTA */
-.linkedin-cta{background:linear-gradient(135deg,#0077b5,#005885);border-radius:14px;padding:28px;margin-bottom:40px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
-.linkedin-cta h3{color:#fff;font-size:1rem;font-weight:800;margin-bottom:6px;}
-.linkedin-cta p{color:#bae6fd;font-size:.84rem;}
-.linkedin-cta .li-btn{background:#fff;color:#0077b5;padding:10px 22px;border-radius:6px;font-weight:700;font-size:.85rem;text-decoration:none;white-space:nowrap;flex-shrink:0;}
-
 footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size:.79rem;}
-
 @media(max-width:900px){
   .hero-content,.about-grid,.contact-grid,.proj-body-grid{grid-template-columns:1fr;}
   .comp-grid,.pos-grid,.charts-grid{grid-template-columns:1fr 1fr;}
@@ -173,7 +133,6 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
   section{padding:56px 20px;}
   nav{padding:14px 20px;}
   .proj-right{border-left:none;border-top:1px solid var(--border);}
-  .linkedin-cta{flex-direction:column;}
 }
 @media(max-width:580px){
   .comp-grid,.pos-grid,.charts-grid,.tools-grid{grid-template-columns:1fr;}
@@ -195,7 +154,6 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <div>
@@ -229,7 +187,6 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
   </div>
 </section>
 
-<!-- ABOUT -->
 <section class="about" id="about">
   <div class="section-inner">
     <div class="about-grid">
@@ -242,8 +199,7 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
       </div>
       <div>
         <div class="about-photo-wrap">
-          <img src="photo-alt.jpg" alt="Olajumoke O. Medunoye"
-            onerror="this.style.display='none'"
+          <img src="photo-alt.jpg" alt="Olajumoke O. Medunoye" onerror="this.style.display='none'"
             style="width:100%;max-width:240px;border-radius:14px;border:3px solid #bfdbfe;box-shadow:0 10px 30px rgba(37,99,235,0.15);display:block;margin:0 auto 20px;object-fit:cover;aspect-ratio:3/4;"/>
         </div>
         <div class="quals">
@@ -257,7 +213,6 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
   </div>
 </section>
 
-<!-- COMPETENCIES -->
 <section class="competencies" id="competencies">
   <div class="section-inner">
     <div class="section-tag" style="color:var(--gold);">Core Expertise</div>
@@ -303,22 +258,12 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section class="projects" id="projects">
   <div class="section-inner">
     <div class="section-tag">Portfolio</div>
     <h2 class="section-title">Case Study <span>Deep Dives</span></h2>
 
-    <!-- LINKEDIN CTA -->
-    <div class="linkedin-cta">
-      <div>
-        <h3>💼 HR Analytics Portfolio – SQL, Excel &amp; Power BI</h3>
-        <p>Data analytics projects exploring workforce planning, HR analytics, and operational performance. Add this to your LinkedIn Featured Section.</p>
-      </div>
-      <a href="https://www.linkedin.com/in/olajumoke-medunoye" target="_blank" class="li-btn">Add to LinkedIn →</a>
-    </div>
-
-    <!-- PROJECT 1 — HR ATTRITION -->
+    <!-- PROJECT 1 -->
     <div class="proj-card">
       <div class="proj-header-bar">
         <span class="proj-sector fin">💰 Financial Services</span>
@@ -347,6 +292,7 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
             <div class="impact-chip">68%<span>Early-tenure exits</span></div>
             <div class="impact-chip">£18.5K<span>Cost per mid-senior exit</span></div>
           </div>
+          <a href="dashboard1.html" target="_blank" class="dash-link-btn">📊 View Full Dashboard →</a>
         </div>
         <div class="proj-right">
           <div class="kpi-row">
@@ -368,7 +314,7 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
       </div>
     </div>
 
-    <!-- PROJECT 2 — HEADCOUNT FORECASTING -->
+    <!-- PROJECT 2 -->
     <div class="proj-card">
       <div class="proj-header-bar">
         <span class="proj-sector tech">💻 Technology</span>
@@ -397,6 +343,7 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
             <div class="impact-chip">240 FTE<span>Growth mapped</span></div>
             <div class="impact-chip">Adopted<span>As board standard</span></div>
           </div>
+          <a href="dashboard2.html" target="_blank" class="dash-link-btn">📊 View Full Dashboard →</a>
         </div>
         <div class="proj-right">
           <div class="kpi-row">
@@ -416,7 +363,7 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
       </div>
     </div>
 
-    <!-- PROJECT 3 — CARE -->
+    <!-- PROJECT 3 -->
     <div class="proj-card">
       <div class="proj-header-bar">
         <span class="proj-sector care">🏥 Care &amp; Healthcare</span>
@@ -445,6 +392,7 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
             <div class="impact-chip">18%<span>Shift absence reduction</span></div>
             <div class="impact-chip">6 Weeks<span>Forward planning horizon</span></div>
           </div>
+          <a href="dashboard3.html" target="_blank" class="dash-link-btn">📊 View Full Dashboard →</a>
         </div>
         <div class="proj-right">
           <div class="chart-title">📊 Staffing &amp; Absence Dashboard</div>
@@ -458,7 +406,7 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
       </div>
     </div>
 
-    <!-- PROJECT 4 — CONTACT CENTRE -->
+    <!-- PROJECT 4 -->
     <div class="proj-card">
       <div class="proj-header-bar">
         <span class="proj-sector ops">📞 Customer Operations</span>
@@ -488,6 +436,7 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
             <div class="impact-chip">+11pts<span>CSAT improvement</span></div>
             <div class="impact-chip">74%<span>SLA breaches traced</span></div>
           </div>
+          <a href="dashboard3.html" target="_blank" class="dash-link-btn">📊 View Full Dashboard →</a>
         </div>
         <div class="proj-right">
           <div class="kpi-row">
@@ -508,7 +457,8 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
         </div>
       </div>
     </div>
-    <!-- PROJECT 5 — RECRUITMENT PIPELINE -->
+
+    <!-- PROJECT 5 -->
     <div class="proj-card">
       <div class="proj-header-bar">
         <span class="proj-sector tech">💻 Technology</span>
@@ -537,6 +487,7 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
             <div class="impact-chip">61→79%<span>Offer acceptance rate</span></div>
             <div class="impact-chip">£38K<span>Cost-per-hire saving</span></div>
           </div>
+          <a href="dashboard4.html" target="_blank" class="dash-link-btn">📊 View Full Dashboard →</a>
         </div>
         <div class="proj-right">
           <div class="kpi-row">
@@ -556,7 +507,7 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
       </div>
     </div>
 
-    <!-- PROJECT 6 — EMPLOYEE PERFORMANCE -->
+    <!-- PROJECT 6 -->
     <div class="proj-card">
       <div class="proj-header-bar">
         <span class="proj-sector fin">💰 Financial Services</span>
@@ -585,6 +536,7 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
             <div class="impact-chip">12%<span>Workforce flagged for retention</span></div>
             <div class="impact-chip">34%<span>Absence linked to low engagement</span></div>
           </div>
+          <a href="dashboard5.html" target="_blank" class="dash-link-btn">📊 View Full Dashboard →</a>
         </div>
         <div class="proj-right">
           <div class="kpi-row">
@@ -607,7 +559,6 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
   </div>
 </section>
 
-<!-- SKILLS -->
 <section class="skills-section" id="skills">
   <div class="section-inner">
     <div class="section-tag">Technical Skills</div>
@@ -619,7 +570,6 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
   </div>
 </section>
 
-<!-- TOOLS -->
 <section class="tools-section">
   <div class="section-inner">
     <div class="section-tag" style="color:var(--gold);">Technology Stack</div>
@@ -639,7 +589,6 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
   </div>
 </section>
 
-<!-- INDUSTRY -->
 <section class="positioning" id="industries">
   <div class="section-inner">
     <div class="section-tag" style="color:var(--gold);">Strategic Positioning</div>
@@ -682,7 +631,6 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="section-inner">
     <div class="contact-grid">
@@ -718,56 +666,34 @@ footer{background:#060e1c;text-align:center;padding:22px;color:#475569;font-size
 
 <script>
 const C=(id,cfg)=>new Chart(document.getElementById(id),cfg);
-const gOpts=(xl,yl)=>({responsive:true,plugins:{legend:{labels:{font:{size:10},color:'#475569'}}},scales:{x:{ticks:{color:'#64748b',font:{size:9.5}},grid:{display:false}},y:{ticks:{color:'#64748b',font:{size:9.5}},grid:{color:'#f1f5f9'}}}});
+const gOpts=()=>({responsive:true,plugins:{legend:{labels:{font:{size:10},color:'#475569'}}},scales:{x:{ticks:{color:'#64748b',font:{size:9.5}},grid:{display:false}},y:{ticks:{color:'#64748b',font:{size:9.5}},grid:{color:'#f1f5f9'}}}});
 
-// P1 — Attrition by Dept
 C('p1c0',{type:'bar',data:{labels:['Sales','Support','Ops','Finance','Tech','HR'],datasets:[{label:'Attrition %',data:[31,24,19,14,12,9],backgroundColor:['#ef4444','#f97316','#f59e0b','#22c55e','#3b82f6','#8b5cf6'],borderRadius:5}]},options:{...gOpts(),plugins:{legend:{display:false}}}});
-// P1 — By Tenure
 C('p1c1',{type:'bar',data:{labels:['0–6m','6–18m','18m–3yr','3yr+'],datasets:[{label:'Exit Rate %',data:[31,37,18,14],backgroundColor:['#ef4444','#f97316','#f59e0b','#22c55e'],borderRadius:5}]},options:{indexAxis:'y',...gOpts(),plugins:{legend:{display:false}}}});
-// P1 — Overtime Risk
 C('p1c2',{type:'doughnut',data:{labels:['Overtime — Left','Overtime — Stayed','No OT — Left','No OT — Stayed'],datasets:[{data:[28,42,8,22],backgroundColor:['#ef4444','#fca5a5','#2563eb','#bfdbfe'],borderWidth:0}]},options:{responsive:true,cutout:'55%',plugins:{legend:{position:'bottom',labels:{font:{size:9.5},color:'#475569',padding:8}}}}});
 
-// P2 — Growth Scenarios
 C('p2c0',{type:'line',data:{labels:['Now','Q1','Q2','Q3','Q4','Q5','Q6'],datasets:[{label:'Conservative',data:[180,196,214,228,242,256,270],borderColor:'#94a3b8',tension:0.4,borderWidth:2,borderDash:[4,3],pointRadius:3},{label:'Base',data:[180,202,228,268,310,356,400],borderColor:'#2563eb',tension:0.4,borderWidth:2.5,pointRadius:3},{label:'Accelerated',data:[180,215,262,316,362,400,420],borderColor:'#22c55e',tension:0.4,borderWidth:2,borderDash:[2,2],pointRadius:3}]},options:gOpts()});
-// P2 — Dept Distribution
 C('p2c1',{type:'doughnut',data:{labels:['Engineering','Product','Sales','People','Finance','Ops'],datasets:[{data:[38,23,18,10,7,4],backgroundColor:['#1a3a6b','#2563eb','#f59e0b','#22c55e','#8b5cf6','#94a3b8'],borderWidth:0}]},options:{responsive:true,cutout:'55%',plugins:{legend:{position:'bottom',labels:{font:{size:9.5},color:'#475569',padding:8}}}}});
 
-// P3 — Absence by Day
 C('p3c0',{type:'bar',data:{labels:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],datasets:[{label:'Absence Rate %',data:[18,8,7,9,16,11,13],backgroundColor:['#ef4444','#22c55e','#22c55e','#22c55e','#f97316','#f59e0b','#f59e0b'],borderRadius:5}]},options:{...gOpts(),plugins:{legend:{display:false}}}});
-// P3 — Burnout Risk
 C('p3c1',{type:'bar',data:{labels:['Night 2–3yr','Mon Shifts','3+ Short Abs','High Bradford','Low Tenure'],datasets:[{label:'Burnout Risk Score',data:[89,82,76,71,65],backgroundColor:'#ef4444',borderRadius:5}]},options:{indexAxis:'y',...gOpts(),plugins:{legend:{display:false}}}});
 
-// P4 — SLA Breach
 C('p4c0',{type:'bar',data:{labels:['Billing','Delivery','Acc. Access','Returns','Tech','Other'],datasets:[{label:'SLA Breach %',data:[29,26,19,12,9,5],backgroundColor:['#ef4444','#f97316','#f59e0b','#94a3b8','#94a3b8','#cbd5e1'],borderRadius:5}]},options:{...gOpts(),plugins:{legend:{display:false}}}});
-// P4 — CSAT Trend
 C('p4c1',{type:'line',data:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug'],datasets:[{label:'CSAT Score',data:[64,66,63,65,68,72,74,75],borderColor:'#2563eb',backgroundColor:'rgba(37,99,235,0.08)',tension:0.4,fill:true,borderWidth:2.5,pointRadius:4,pointBackgroundColor:'#f59e0b'}]},options:gOpts()});
-// P4 — Before/After
-C('p4c2',{type:'bar',data:{labels:['Report Speed','Cost Eff.','Retention','SLA Acc.','Decision Spd'],datasets:[{label:'Before',data:[38,52,66,70,42],backgroundColor:'#bfdbfe',borderRadius:4},{label:'After',data:[85,79,83,94,78],backgroundColor:'#2563eb',borderRadius:4}]},options:{...gOpts()}});
+C('p4c2',{type:'bar',data:{labels:['Report Speed','Cost Eff.','Retention','SLA Acc.','Decision Spd'],datasets:[{label:'Before',data:[38,52,66,70,42],backgroundColor:'#bfdbfe',borderRadius:4},{label:'After',data:[85,79,83,94,78],backgroundColor:'#2563eb',borderRadius:4}]},options:gOpts()});
 
-// Radar
 C('radarChart',{type:'radar',data:{labels:['Power BI','Excel','PostgreSQL','Workforce Planning','KPI Design','Stakeholder Comms','Data Modelling','HR Analytics'],datasets:[{label:'Proficiency',data:[90,95,80,92,90,88,85,94],backgroundColor:'rgba(37,99,235,0.12)',borderColor:'#2563eb',pointBackgroundColor:'#f59e0b',pointBorderColor:'#fff',borderWidth:2}]},options:{responsive:true,scales:{r:{min:0,max:100,ticks:{display:false},grid:{color:'#e2e8f0'},pointLabels:{font:{size:10},color:'#475569'}}},plugins:{legend:{display:false}}}});
-// Sector
 C('sectorChart',{type:'doughnut',data:{labels:['HR & Workforce','Customer Ops','Financial Services','Care / Healthcare','Technology'],datasets:[{data:[32,25,20,13,10],backgroundColor:['#1a3a6b','#2563eb','#f59e0b','#22c55e','#8b5cf6'],borderWidth:0,hoverOffset:8}]},options:{responsive:true,cutout:'62%',plugins:{legend:{position:'bottom',labels:{font:{size:10.5},color:'#475569',padding:10}}}}});
 
-// P5 — Recruitment Funnel
 C('p5c0',{type:'bar',data:{labels:['Applied','Screened','Assessment','Interview','Offer','Accepted'],datasets:[{label:'Candidates',data:[420,280,148,89,61,48],backgroundColor:['#1a3a6b','#2563eb','#3b82f6','#60a5fa','#f59e0b','#22c55e'],borderRadius:5}]},options:{...gOpts(),plugins:{legend:{display:false}}}});
-// P5 — Time to Hire
 C('p5c1',{type:'bar',data:{labels:['Junior','Mid-Level','Senior','Lead','Director'],datasets:[{label:'Days Before',data:[28,35,54,62,71],backgroundColor:'#bfdbfe',borderRadius:4},{label:'Days After',data:[21,28,41,50,58],backgroundColor:'#2563eb',borderRadius:4}]},options:gOpts()});
 
-// P6 — Performance Distribution
 C('p6c0',{type:'doughnut',data:{labels:['Exceeds (Top)','Meets+','Meets','Below Meets','Underperform'],datasets:[{data:[18,29,35,12,6],backgroundColor:['#22c55e','#86efac','#bfdbfe','#fcd34d','#ef4444'],borderWidth:0,hoverOffset:8}]},options:{responsive:true,cutout:'55%',plugins:{legend:{position:'bottom',labels:{font:{size:9.5},color:'#475569',padding:8}}}}});
-// P6 — Engagement vs Flight Risk
 C('p6c1',{type:'bar',data:{labels:['Engaged+Perform','Engaged+LowPerf','Disengaged+Perform','Disengaged+LowPerf'],datasets:[{label:'Flight Risk %',data:[8,14,42,71],backgroundColor:['#22c55e','#f59e0b','#f97316','#ef4444'],borderRadius:5}]},options:{indexAxis:'y',...gOpts(),plugins:{legend:{display:false}}}});
 
-// Tab switcher
 function showChart(proj,idx,btn){
   let i=0;
-  while(true){
-    const c=document.getElementById(proj+'c'+i);
-    if(!c)break;
-    c.style.display=i===idx?'block':'none';
-    i++;
-  }
+  while(true){const c=document.getElementById(proj+'c'+i);if(!c)break;c.style.display=i===idx?'block':'none';i++;}
   btn.closest('.proj-right').querySelectorAll('.ctab').forEach((t,ti)=>t.classList.toggle('active',ti===idx));
 }
 </script>
